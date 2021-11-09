@@ -17,17 +17,18 @@ int isNumber(char s[])
 
 void runExerciseOne()
 {
+}
 
 void calculateNewTable(int initialTable[rows][columns], int newTable[rows][columns])
 {
     for (int i = 0; i < rows; i++)
-    { 
+    {
         for (int j = 0; j < columns; j++)
-        {   
+        {
             if (i == j)
-            {   
+            {
                 int rowMax = initialTable[i][0];
-                for (int t e mpj = 0; tempj < columns; tempj++)
+                for (int tempj = 0; tempj < columns; tempj++)
                 {
                     if (initialTable[i][tempj] > rowMax)
                     {
@@ -35,11 +36,11 @@ void calculateNewTable(int initialTable[rows][columns], int newTable[rows][colum
                     }
                 }
                 newTable[i][j] = rowMax;
-            }  
+            }
             else if (i % 2 != 0 && j % 2 == 0)
-            {           
+            {
                 int columnMax = initialTable[0][j];
-                for (int temp i  = 0; tempi < rows; tempi++)
+                for (int tempi = 0; tempi < rows; tempi++)
                 {
                     if (initialTable[tempi][j] > columnMax)
                     {
@@ -47,11 +48,11 @@ void calculateNewTable(int initialTable[rows][columns], int newTable[rows][colum
                     }
                 }
                 newTable[i][j] = columnMax;
-            }  
+            }
             else if (i % 2 == 0 && j % 2 != 0)
-            {           
+            {
                 int rowMin = initialTable[i][0];
-                for (int t e mpj = 0; tempj < columns; tempj++)
+                for (int tempj = 0; tempj < columns; tempj++)
                 {
                     if (initialTable[i][tempj] < rowMin)
                     {
@@ -59,27 +60,30 @@ void calculateNewTable(int initialTable[rows][columns], int newTable[rows][colum
                     }
                 }
                 newTable[i][j] = rowMin;
-            }  
+            }
             else
             {
                 newTable[i][j] = 0;
-            }  
+            }
         }
     }
+
     printf("\nOur new 2 Dimensional Array is calculated. Array content:\n");
     for (int i = 0; i < rows; i++)
     {
-         for (int j = 0; j < columns; j++)
+        for (int j = 0; j < columns; j++)
         {
-             printf("| %d   |", newTable[i][j]);
+            printf("| %d |", newTable[i][j]);
             if (j == columns - 1)
             {
-                  pr intf("\ n ");
+                printf("\n");
             }
         }
     }
 }
 
+void runExerciseTwo()
+{
     printf("not implemented");
 }
 void runExerciseThree()
@@ -109,31 +113,32 @@ void runExerciseFour()
 
     fflush(stdin);
     int initialTable[rows][columns];
-    i
+    int newTable[rows][columns];
+
     printf("\n\nTable Created A[%d][%d]\n\n", rows, columns);
     printf("Please fill the table: \n\n");
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
-        {  
+        {
             printf("\tA[%d][%d]: ", i + 1, j + 1);
-             scanf("%d", &initialTable[i][j]);
+            scanf("%d", &initialTable[i][j]);
         }
-    }   
+    }
 
-    fflush(stdin);     
-    printf("\nOur 2 Dim ensional Array is filled. Array content:\n");
+    fflush(stdin);
+    printf("\nOur 2 Dimensional Array is filled. Array content:\n");
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
             printf("| %d |", initialTable[i][j]);
-             if (j == columns - 1)
+            if (j == columns - 1)
             {
-                 printf(" \ n");
+                printf("\n");
             }
         }
-    }     
+    }
 
     printf("\nCalculating new table..\n\n");
     calculateNewTable(initialTable, newTable);
@@ -141,6 +146,8 @@ void runExerciseFour()
 
 int main(int argc, char **argv)
 {
+
+    char input[10];
 
     do
     {
@@ -188,7 +195,8 @@ int main(int argc, char **argv)
 void printMenu()
 {
 
-    p printf("\t[1]Run exercise 1 (Maclaurin Series)\n");
+    printf("[Menu]:\n");
+    printf("\t[1]Run exercise 1 (Maclaurin Series)\n");
     printf("\t[2]Run exercise 2 (Recursive Function)\n");
     printf("\t[3]Run exercise 3 (Character Print)\n");
     printf("\t[3]Run exercise 4 (2 Dimension Exercise)\n");
