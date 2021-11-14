@@ -14,10 +14,44 @@ int isNumber(char s[])
 
     return 1;
 }
+long getFactorial(int x){
+    long result = 1;
+
+    for (int i = 1; i <= x; i++){
+        result = result * i;
+    }
+
+    return result;
+}
+
+void calculateMaclaurin(double x,int N){
+    double functionResult = 0.0;
+    for(int i = 0; i <= N; i++){
+        double numerator = pow(-1,i);
+        long denominator = getFactorial((2*i +1));
+        functionResult+= (numerator/denominator) * pow(x, (2*i+1));
+    }
+
+      printf("\n\n\tFor x=%.2lf, f(x)=%.2lf\n\n\n",x,functionResult);
+}
 
 void runExerciseOne()
 {
+    double number;
+    int terms;
+    printf("Please enter a number (x): ");
+    scanf("%lf", &number);
+    fflush(stdin);
+    printf("Please enter number of Terms (N): ");
+    scanf("%d", &terms);
+    fflush(stdin);
+
+    calculateMaclaurin(number,terms);
 }
+
+
+
+
 
 void calculateNewTable(int initialTable[rows][columns], int newTable[rows][columns])
 {
@@ -68,7 +102,7 @@ void calculateNewTable(int initialTable[rows][columns], int newTable[rows][colum
         }
     }
 
-    printf("\nOur new 2 Dimensional Array is calculated. Array content:\n");
+    printf("\n\tOur new 2 Dimensional Array has been created. Array content:\n");
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
@@ -80,36 +114,78 @@ void calculateNewTable(int initialTable[rows][columns], int newTable[rows][colum
             }
         }
     }
+    printf("\n\n--------------------------\n\n");
 }
 
 void runExerciseTwo()
 {
-    printf("not implemented");
+    printf("not implemented\n\n");
 }
 void runExerciseThree()
 {
-    printf('not implemented');
+    printf("not implemented\n\n");
 }
 
 void runExerciseFour()
 {
     int flag;
     flag = 0;
+    char input[10];
+    do
+    {
+        printf("Please enter Number of ROWS (min 0 max 6) or press 9 to cancel: ");
+        scanf("%s", &input);
+        printf("\n------------------------------------\n");
+        rows = atoi(input);
+        switch(rows)
+        {
+        case 1 ... 6:
+            flag = 1;
+            break;
+        case 9:
+            printf("|       Returning to Main Menu..   |\n");
+            printf("------------------------------------\n\n");
+            return;
+            break;
+        default:
+            printf("| Invalid Input, please try again. |\n");
+            printf("------------------------------------\n\n");
+            break;
+        }
+
+        if(flag==1) break;
+    }
+    while (isNumber(input) == -1 || input < 0 || input > 6);
+
+    fflush(stdin);
+    flag=0;
 
     do
     {
-        if (flag == 1)
+        printf("Please enter Number of COLUMNS (min 0 max 6) or press 9 to cancel: ");
+        scanf("%s", &input);
+        printf("\n------------------------------------\n");
+        columns = atoi(input);
+        switch(columns)
         {
-            printf("INVALID INPUT TRY AGAIN\n\n");
+        case 1 ... 6:
+            flag = 1;
+            break;
+        case 9:
+            printf("|       Returning to Main Menu..   |\n");
+            printf("------------------------------------\n\n");
+            return;
+            break;
+        default:
+            printf("| Invalid Input, please try again. |\n");
+            printf("------------------------------------\n\n");
+            break;
         }
-        printf("Please enter Number of rows (min 0 max 6): ");
-        scanf("%d", &rows);
-        printf("\tNumber of rows given: %d\n\n", rows);
-        printf("Please enter Number of columns (min 0 max 6): ");
-        scanf("%d", &columns);
-        printf("\tNumber of rows given: %d\n\n", columns);
-        flag = 1;
-    } while (rows < 0 || rows > 6 || columns < 0 || columns > 6);
+
+        if(flag==1) break;
+    }
+    while (isNumber(input) == -1 || input < 0 || input > 6);
+
 
     fflush(stdin);
     int initialTable[rows][columns];
@@ -127,7 +203,7 @@ void runExerciseFour()
     }
 
     fflush(stdin);
-    printf("\nOur 2 Dimensional Array is filled. Array content:\n");
+    printf("\n\tOur 2 Dimensional Array is filled. Array content:\n");
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
@@ -140,7 +216,7 @@ void runExerciseFour()
         }
     }
 
-    printf("\nCalculating new table..\n\n");
+    printf("\nCreating new table..\n\n");
     calculateNewTable(initialTable, newTable);
 }
 
@@ -188,7 +264,8 @@ int main(int argc, char **argv)
             printf("------------------------------------\n\n");
             break;
         }
-    } while (isNumber(input) == -1 || input < 1 || input > 4);
+    }
+    while (isNumber(input) == -1 || input < 1 || input > 4);
     return 0;
 }
 
