@@ -14,25 +14,29 @@ int isNumber(char s[])
 
     return 1;
 }
-long getFactorial(int x){
+long getFactorial(int x)
+{
     long result = 1;
 
-    for (int i = 1; i <= x; i++){
+    for (int i = 1; i <= x; i++)
+    {
         result = result * i;
     }
 
     return result;
 }
 
-void calculateMaclaurin(double x,int N){
+void calculateMaclaurin(double x, int N)
+{
     double functionResult = 0.0;
-    for(int i = 0; i <= N; i++){
-        double numerator = pow(-1,i);
-        long denominator = getFactorial((2*i +1));
-        functionResult+= (numerator/denominator) * pow(x, (2*i+1));
+    for (int i = 0; i <= N; i++)
+    {
+        double numerator = pow(-1, i);
+        long denominator = getFactorial((2 * i + 1));
+        functionResult += (numerator / denominator) * pow(x, (2 * i + 1));
     }
 
-      printf("\n\n\tFor x=%.2lf, f(x)=%.2lf\n\n\n",x,functionResult);
+    printf("\n\n\tFor x=%.2lf, f(x)=%.2lf\n\n\n", x, functionResult);
 }
 
 void runExerciseOne()
@@ -46,12 +50,8 @@ void runExerciseOne()
     scanf("%d", &terms);
     fflush(stdin);
 
-    calculateMaclaurin(number,terms);
+    calculateMaclaurin(number, terms);
 }
-
-
-
-
 
 void calculateNewTable(int initialTable[rows][columns], int newTable[rows][columns])
 {
@@ -137,7 +137,7 @@ void runExerciseFour()
         scanf("%s", &input);
         printf("\n------------------------------------\n");
         rows = atoi(input);
-        switch(rows)
+        switch (rows)
         {
         case 1 ... 6:
             flag = 1;
@@ -153,12 +153,12 @@ void runExerciseFour()
             break;
         }
 
-        if(flag==1) break;
-    }
-    while (isNumber(input) == -1 || input < 0 || input > 6);
+        if (flag == 1)
+            break;
+    } while (isNumber(input) == -1 || input < 0 || input > 6);
 
     fflush(stdin);
-    flag=0;
+    flag = 0;
 
     do
     {
@@ -166,7 +166,7 @@ void runExerciseFour()
         scanf("%s", &input);
         printf("\n------------------------------------\n");
         columns = atoi(input);
-        switch(columns)
+        switch (columns)
         {
         case 1 ... 6:
             flag = 1;
@@ -182,10 +182,9 @@ void runExerciseFour()
             break;
         }
 
-        if(flag==1) break;
-    }
-    while (isNumber(input) == -1 || input < 0 || input > 6);
-
+        if (flag == 1)
+            break;
+    } while (isNumber(input) == -1 || input < 0 || input > 6);
 
     fflush(stdin);
     int initialTable[rows][columns];
@@ -264,8 +263,7 @@ int main(int argc, char **argv)
             printf("------------------------------------\n\n");
             break;
         }
-    }
-    while (isNumber(input) == -1 || input < 1 || input > 4);
+    } while (isNumber(input) == -1 || input < 1 || input > 4);
     return 0;
 }
 
@@ -275,7 +273,7 @@ void printMenu()
     printf("[Menu]:\n");
     printf("\t[1] Run exercise 1 (Maclaurin Series)\n");
     printf("\t[2] Run exercise 2 (Recursive Function)\n");
-    printf("\t[3] Run exercise 3 (Character Print)\n");
+    printf("\t[3] Run exercise 3 (Character Printing)\n");
     printf("\t[4] Run exercise 4 (2 Dimensions Exercise)\n");
     printf("\t[5] Exit\n\n");
 }
