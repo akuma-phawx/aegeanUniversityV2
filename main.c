@@ -271,7 +271,7 @@ void printMenu()
 {
 
     printf("[Menu]:\n");
-    printf("\t[1] Run exercise 1 (Maclaurin Series)\n");
+    printf("\t[1] Run exercise 1 (Maclaurin-Series)\n");
     printf("\t[2] Run exercise 2 (Recursive Function)\n");
     printf("\t[3] Run exercise 3 (Character Printing)\n");
     printf("\t[4] Run exercise 4 (2 Dimensions Exercise)\n");
