@@ -143,7 +143,7 @@ void runExerciseFour()
             flag = 1;
             break;
         case 9:
-            printf("|       Returning to Main Menu..   |\n");
+            printf("|       Returning to Main Menu ..  |\n");
             printf("------------------------------------\n\n");
             return;
             break;
